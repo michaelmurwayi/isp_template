@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>TRUTH WIFI</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="http://truthwifi.com/logos/truth-favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/animations.css">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/font-awesome.css">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/main.css" class="color-switcher-link">
+	<link rel="stylesheet" href="/cookiealert.css">
+	<link media="all" type="text/css" rel="stylesheet" href="http://truthwifi.com/css/client/frontend.dev.css">
+
+	<script src="http://webdesign-finder.com/html/maxicom/js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <script>
+
+        function select_bundle(clicked) {
+            let values = document.getElementById(clicked).value;
+            let bundle_name = document.getElementById(clicked).name;
+            data_array = [];
+            data_array = values.split(',');
+            data_array.push(bundle_name);
+            alert(data_array)
+            var url = "https://cf96cfb76f54.ngrok.io/api/v1/online/lipa"
+
+            $.ajax(
+                {
+                    type: "GET",
+                    url: url,
+                    data: {
+                        access_period: data_array[0],
+                        price: data_array[1],
+                        speed: data_array[2],
+                        bundle: data_array[3],
+
+                    },
+                    success: function (data) {
+                        $('#like' + catid).remove();
+                        $('#message').text(data);
+                    }
+                })
+
+        }
+
+    </script>
+
+    <!-- Scripts -->
+</head>
+
+<body>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<a href="./" class="logo">
+				<span class="logo-text py-20"><strong>TRUTH</strong>WIFI</span>
+			</a>
+			
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<!-- wrappers for visual page editor and boxed version of template -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- template sections -->
+
+
+			<!--topline section visible only on small screens|-->
+			<section class="page_topline ls s-borderbottom c-my-10 c-my-lg-20">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-6 text-md-left text-center">
+							<ul class="top-includes">
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main fs-14">
+											<i class="fa fa-phone"></i>
+										</span>
+										<span class="small-text">
+											<a id="loginUrlToggle" href="{% url 'login' %}"><b>LOGIN</b></a>
+										</span>
+									</span>
+								</li>
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main fs-14">
+											<i class="fa fa-pencil"></i>
+										</span>
+										<span class="small-text">
+											<a href="/signup.html"><b>REGISTER</b></a>
+										</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-6 text-center text-md-right d-none d-md-block">
+							<ul class="top-includes">
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main2 fs-14">
+											<i class="fa fa-comment"></i>
+										</span>
+										<span class="small-text">
+											<a class="hover-main2" href="#"></a>
+										</span>
+									</span>
+								</li>
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main2 fs-14">
+											<i class="fa fa-user"></i>
+										</span>
+										<span class="small-text">
+											<a class="hover-main2" href="#"> </a>
+										</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<!--eof topline-->
+
+			<div class="header_absolute header_layout_1">
+				<div id="particles-js"></div>
+				<!-- header with two Bootstrap columns - left for logo and right for navigation and includes (search, social icons, additional links and buttons etc -->
+				<header class="page_header ls justify-nav-end">
+					<div class="container-fluid">
+						<div class="row align-items-center">
+							<div class="col-xl-2 col-lg-4 col-md-5 col-11">
+								<a href="./" class="logo">
+									<span class="logo-text py-20"><strong>TRUTH</strong>WIFI</span>
+
+								</a>
+							
+							</div>
+							<div class="col-xl-9 col-lg-8 col-md-7 col-1">
+								<div class="nav-wrap">
+
+									<!-- main nav start -->
+									<nav class="top-nav">
+										<ul class="nav sf-menu">
+
+
+											<li class="active">
+												<a href="index.html"><b>Home</b></a>
+											</li>
+
+											<li>
+												<a href="internet.html"><b>help</b></a>
+											</li>
+
+											<li>
+												<a href="internet.html"><b>Internet Plans</b></a>
+											</li>
+
+											<li>
+												<a href="signup.html"><b>register</b></a>
+											</li>
+
+											<li>
+												<a href="login.html"><b>login</b></a>
+											</li>
+
+											<!-- eof features -->
+
+										</ul>
+
+
+									</nav>
+									<!-- eof main nav -->
+
+									<!--hidding includes on small devices. They are duplicated in topline-->
+									<ul class="top-includes d-none d-xl-block search-icon">
+
+										<li>
+											
+										</li>
+
+									</ul>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- header toggler -->
+					<span class="toggle_menu"><span></span></span>
+				</header>
+
+				<div class="page_header_wrapper main-header-side">
+					<div class="page_header_side header_slide header_side_right ls">
+						<span class="toggle_menu toggle_menu_side header-slide"><span></span></span>
+						<div class="scrollbar-macosx">
+							<div class="side_header_inner">
+								<div class="header-side-menu">
+									<!-- main side nav start -->
+									<nav class="mainmenu_side_wrapper">
+										<ul class="nav menu-click">
+											
+											<li>
+												<a href="availability-map.html">
+													<i class="color-main7 fa fa-file-text-o"></i>
+													Terms of Service
+												</a>
+											</li>
+											
+										</ul>
+									</nav>
+									<!-- eof main side nav -->
+
+
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+
+				<section class="page_title cs s-pt-60 s-pb-10 s-pt-lg-130 s-pb-lg-60 page_title text-center">
+					<div class="container-fluid">
+						<div class="row">
+
+							<div class="divider-60"></div>
+
+							<div class="col-md-12 text-center">
+								<h3>TRUTH WIFI</h3>
+								<h4>Click on Internet package and you will be redirected to enter your mpesa PIN</h4>
+							</div>
+
+							<div class="divider-50"></div>
+
+						</div>
+
+					</div>
+					<ol class="breadcrumb full-width">
+						<li class="breadcrumb-item">
+							<a href="./">Home</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#">Packages</a>
+						</li>
+						<li class="breadcrumb-item active">
+							Internet
+						</li>
+					</ol>
+				</section>
+			</div>
+			
+			<div class="content">
+				<!-- MAIN CONTENT -->
+				<div class="row">
+			<h2 class="visible-xs visible-sm text-center mb-40">My Account</h2>
+			<div class="col-sm-12 text-center">
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="row">
+							<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+								<div class="panel panel-warning" style="position: relative;">
+									<div class="panel-heading">
+										<i class="fa fa-money fa-2x left-top"></i><i class="fa fa-money fa-2x right-top"></i>
+										<h3>balance</h3>
+										<p style="margin-bottom: 25px;">Kshs 0.00</p>
+										<i class="fa fa-money fa-2x left-bottom"></i><i class="fa fa-money fa-2x right-bottom"></i>
+										<div class="clear-fix"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="row">
+							<div class="col-xs-12">
+								<i class="fa fa-feed fa-3x pull-left"></i>
+																<span><strong>Plan:</strong> Daily 2 GB @30/-</span><br>
+									<span><strong>Data Used:</strong> 0 MBs</span><br>
+									<span><strong>Time Used:</strong> 0 Minutes</span><br>
+																	<span><strong>Data Remaining:</strong> 2048 MBs</span><br>
+																	<span><strong>Expires On:</strong> November 20 2020 11:39:18</span><br>
+									
+							</div>
+						</div>
+						<br class="hidden-sm">
+						<div class="row">
+							<div class="col-xs-12">
+								<a href="http://truthwifi.com/client/credit" class="btn btn-primary">
+									Pay Now
+								</a>
+								<a href="http://truthwifi.com/client/packages" class="btn btn-primary">
+									Buy Internet Bundle
+								</a>
+							</div>
+						</div>
+						<br class="hidden-sm">
+						<span><i class="fa fa-info-circle"></i><small> Refresh page to update data balance.</small></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr style="border: 4px solid">
+		<div class="row">
+			<div id="session-accounting">
+				<div id="client-message" style="display: none;">
+		<div class="col-xs-12 text-center" id="dashboard-data">
+			<span style="color: #2622ca;">
+			You are online, <strong id="data-used">Data Used: 0 Mbs</strong>&nbsp;.<strong id="time-used">. Session Time: 0 Mins</strong>,enjoy browsing!
+			</span>
+		</div>
+		<div id="dashboard-no-data" class="col-xs-12 text-center" id="expiration">
+			<span style="color: #2622ca;">
+				<strong>You browsing is limited.</strong> Purchase a bundle plan to enjoy browsing, <a href="http://truthwifi.com/client/packages" >click here.</a>
+			</span>
+		</div>
+	</div>
+	<div id="alt-message" style="display: block;">
+		<div class="col-xs-12 text-center">
+			<span id="text-result">
+				<i class="fa fa-refresh fa-spin" style="color: #2622ca;"></i>  Waiting for you to join our network.
+			</span>
+		</div>
+	</div>
+			</div>
+		</div>
+		<hr style="border: 4px solid;">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading" data-toggle="collapse" data-target="#profile">
+						<h2 class="panel-title text-center">
+							<span class="h3">
+								My profile
+							</span>
+						</h2>
+					</div>
+					<div class="panel-collapse collapse in" id="profile">
+						<div class="panel-body">
+							<div class="list-group">
+								<a href="#" class="list-group-item">
+									<span class="text-primary pull-left hidden-xs">Name</span>
+									<span class="visible-xs text-primary"><i class="fa fa-user"></i></span>
+									<strong class="right">Paul_Saul</strong>
+								</a>
+								<a href="#" class="list-group-item">
+									<span class="text-primary pull-left hidden-xs">Phone</span>
+									<span class="visible-xs text-primary"><i class="fa fa-phone"></i></span>
+									<strong class="right">+254797584194</strong>
+								</a>
+								<a href="#" class="list-group-item">
+									<span class="text-primary pull-left hidden-xs">Email</span>
+									<span class="visible-xs text-primary"><i class="fa fa-envelope"></i></span>
+									<strong class="right">Paul_Saul</strong>
+								</a>
+								<a href="#" class="list-group-item">
+									<span class="text-primary pull-left hidden-xs">Joined</span>
+									<span class="visible-xs text-primary"><i class="fa fa-clock-o"></i></span>
+									<strong class="right">2 years ago</strong>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading" data-toggle="collapse" data-target="#mpesa-claim">
+						<h4 class="panel-title text-center">
+							<span>
+								Claim Mpesa Payment
+							</span>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse" id="mpesa-claim">
+						<div class="panel-body">
+							<form action="http://truthwifi.com/client/mpesa/claim" method="post" class="form-horizontal">
+								<input type="hidden" name="_token" value="15APharUjAJaLsaUbL4XWex9ZNYTObFQS9zm6NkB">
+								<div class="form-group">
+									<label for="trans_id" class="col-xs-3">Mpesa Code</label>
+									<div class="col-xs-9">
+										<input type="text" class="form-control" id="trans_id"  name="trans_id">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-xs-offset-3 col-xs-9">
+										<button class="btn btn-primary" type="submit">Claim</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+						</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading"  data-toggle="collapse" data-target="#form">
+								<h2 class="panel-title text-center">
+									<span class="h3">Complete or Update your profile here</span>
+								</h2>
+							</div>
+							<div class="panel-collapse collapse" id="form">
+								<div class="panel-body">
+	
+									<form action="http://truthwifi.com/client/update" method="post" class="form-horizontal">
+										<input type="hidden" name="_token" value="15APharUjAJaLsaUbL4XWex9ZNYTObFQS9zm6NkB">
+										<div class="form-group">
+											<label for="full_name" class="col-xs-3">Name</label>
+											<div class="col-xs-9">
+												<input type="text" class="form-control" id="full_name" name="full_name"
+													   value="Paul_Saul">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="email" class="col-xs-3">Email</label>
+											<div class="col-xs-9">
+												<input type="email" class="form-control" id="email" name="email"
+													   value="Paul_Saul">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-offset-3 col-xs-9">
+												<input class="btn btn-primary" type="submit">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading"  data-toggle="collapse" data-target="#pin">
+								<h2 class="panel-title text-center">
+									<span class="h3">Change your pin here</span>
+								</h2>
+							</div>
+							<div class="panel-collapse collapse" id="pin">
+								<div class="panel-body">
+									<form action="http://truthwifi.com/client/password/change?user=2629" method="post" class="form-horizontal">
+										<input type="hidden" name="_token" value="15APharUjAJaLsaUbL4XWex9ZNYTObFQS9zm6NkB">
+										<div class="form-group">
+											<label for="old_password" class="col-xs-4">Old PIN</label>
+											<div class="col-xs-8">
+												<input type="password" class="form-control" id="old_password"  name="old_password" value="" placeholder="1234">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="password" class="col-xs-4">New Pin</label>
+											<div class="col-xs-8">
+											<input type="password" id="password" name="password" value="" class="form-control" placeholder="9876">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="password_confirmation" class="col-xs-4">Confirm New Pin</label>
+											<div class="col-xs-8">
+											<input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="9876">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-offset-4 col-xs-8">
+												<input class="btn btn-primary" type="submit">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- MAIN CONTENT -->
+			</div>
+		</div>
+		<!-- FOOTER -->
+			
+			
+			<!-- START Bootstrap-Cookie-Alert -->
+<div class="alert text-center cookiealert" role="alert">
+    <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+
+    <button type="button" class="btn btn-primary btn-sm acceptcookies">
+        I agree
+    </button>
+</div>
+<!-- Include cookiealert script -->
+<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+	<!-- END Bootstrap-Cookie-Alert -->
+	
+					
+
+			<section class="page_copyright ds s-py-10 copyright-bg">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="divider-15 d-none d-lg-block"></div>
+						<div class="col-md-12 text-center">
+							<p> Copyright &copy; <span class="copyright_year">2020</span> <b>TRUTHWIFI</b></p>
+						</div>
+						<div class="divider-15 d-none d-lg-block"></div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="http://webdesign-finder.com/html/maxicom/js/compressed.js"></script>
+	<script src="http://webdesign-finder.com/html/maxicom/js/main.js"></script>
+	<script src="http://webdesign-finder.com/html/maxicom/js/switcher.js"></script>
+
+</body>
+
+</html>
